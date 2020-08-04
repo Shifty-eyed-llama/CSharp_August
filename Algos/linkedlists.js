@@ -25,6 +25,14 @@ class SLList {
     // is empty. HINT! Check out 
     isEmpty(){
         return this.head === null;
+
+        // Alternatively:
+        // if(this.head == null) {
+        //      return true;   
+        // }
+        // else {
+        //      return false;
+        // }
     }
 
     // Write a method that will add to the back of a singly linked list.
@@ -33,7 +41,38 @@ class SLList {
     // then create a new node at the end, and reassign the last node's .next pointer
     // to the new node.
     addToBack(value){
+        // First step is going to be checking to see if the singly linked list is empty!
 
+        // Let's use the isEmpty method we wrote!
+        if(this.isEmpty()){
+            // If this.isEmpty() resolved to true, that means our list has no content!
+            // So let's set the head of our list to a new node!
+            this.head = new SLNode(value);
+            return this;
+        }
+
+        // If we're here, then we passed the empty check, and we need to find our way to the
+        // end of the current list.
+
+        // To do so, we create a variable and have it hold onto the first
+        // node in our SLL
+        let runner = this.head;
+
+        // Because we want to get to the end of the list, and not what comes AFTER
+        // the end of the list, we want to move runner along until we're AT the last
+        // node.
+        while(runner.next != null) {
+            // If runner.next is not null, we're not quite at the end of the list,
+            // so we move runner to its .next 
+            runner = runner.next;
+        }
+        // Since we've broken out of that loop, we must be at the end!
+        // Let's take that last node, and reassign its .next pointer to
+        // point at a new node instead!
+        runner.next = new SLNode(value);
+
+        // And finally, so we can chain methods 
+        return this;
     }
 
     // Here's a gimme: This will print the contents of a singly linked list.
@@ -66,3 +105,7 @@ class SLList {
         return this;
     }
 }
+
+let myList = new SLList();
+
+console.log(myList.head === null);

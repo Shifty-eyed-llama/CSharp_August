@@ -44,6 +44,10 @@ namespace BoxUnbox
 
             myList.ForEach(item => System.Console.WriteLine(item));
 
+
+
+
+
             foreach(object item in myList)
             {
                 System.Console.WriteLine(item);
