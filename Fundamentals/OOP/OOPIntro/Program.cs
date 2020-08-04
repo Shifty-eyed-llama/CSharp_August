@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 
 namespace OOPIntro
@@ -11,9 +12,8 @@ namespace OOPIntro
             Character Anon = new Character();
 
             Bob.Attack(Anon);
-    
-            // System.Console.WriteLine(Bob.Age);
 
+            // System.Console.WriteLine(Bob.Age);
         }
     }
 }
