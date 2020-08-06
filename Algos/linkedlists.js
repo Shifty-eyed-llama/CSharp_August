@@ -79,7 +79,24 @@ class SLList {
     // Write a method for our singly linked list class that will take a value, and
     // add a new node to the front of the current singly linked list.
     addToFront(value) {
+        // Step 1: Let's create our new node
+        let newNode = new SLNode(value);
 
+        // Step 2: Assign that new node's .next pointer to be the current head of the list
+        newNode.next = this.head;
+
+        // Step 3: And reassign the head of the list to now be the new node.
+        this.head = newNode;
+
+        // Step 4: Return the list.
+        return this;
+
+        // You might be saying "But Cody, what if the list is empty??"
+
+        // It's a good question! But if the list is empty, this.head is null, right?
+        // So that means we're still safe to assign the new node's .next to be the head,
+        // because Adding to the front of an empty list means the new node will be both
+        // the first and last node, so its .next SHOULD be null!
     }
 
     // Here's a gimme: This will print the contents of a singly linked list.
@@ -112,7 +129,3 @@ class SLList {
         return this;
     }
 }
-
-let myList = new SLList();
-
-console.log(myList.head === null);

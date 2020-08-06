@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    @{
+        List<string> stringlist = new List<string>
+            {
+                "Bill",
+                "Bob",
+                "Tony",
+                "Mary",
+                "Jeff"
+            };
+
+        string RealName = "A-aron";
+    }
+    <h1>Welcome to my page</h1>
+
+    <ul>
+        @foreach(string name in stringlist)
+        {
+            if(name == "Tony")
+            {
+                <li>Not you</li>
+            }
+            else
+            {
+                <li>@name</li>
+            }
+        }
+    </ul>
+
+    @if(RealName == "A-aron")
+    {
+        <p>YO BUHLAKEY</p>
+    }
+    else 
+    {
+        <p>Pre-sent</p>
+    }
+</body>
+</html>
