@@ -75,6 +75,13 @@ class SLList {
         return this;
     }
 
+
+    // Write a method for our singly linked list class that will take a value, and
+    // add a new node to the front of the current singly linked list.
+    addToFront(value) {
+
+    }
+
     // Here's a gimme: This will print the contents of a singly linked list.
     printList(){
         if(this.isEmpty()){
