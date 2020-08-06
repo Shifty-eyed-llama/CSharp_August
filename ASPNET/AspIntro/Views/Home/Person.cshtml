@@ -6,22 +6,10 @@
     <title>Document</title>
 </head>
 <body>
-    @{
-        List<string> stringlist = new List<string>
-            {
-                "Bill",
-                "Bob",
-                "Tony",
-                "Mary",
-                "Jeff"
-            };
-
-        string RealName = "A-aron";
-    }
-    <h1>Welcome to my page</h1>
+    <h1>Welcome to my page, @ViewBag.Name</h1>
 
     <ul>
-        @foreach(string name in stringlist)
+        @foreach(string name in ViewBag.StringList)
         {
             if(name == "Tony")
             {
@@ -34,7 +22,7 @@
         }
     </ul>
 
-    @if(RealName == "A-aron")
+    @if(ViewBag.RealName == "A-aron")
     {
         <p>YO BUHLAKEY</p>
     }
