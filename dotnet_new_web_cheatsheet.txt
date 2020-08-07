@@ -1,16 +1,19 @@
 INITIAL CREATION
 
-Terminal: 
-dotnet new web --no-https -o YourProjectNamehere
-
-*** If this is the first web app you've created ***
+**************** If this is the first web app you've created *******************
 Terminal:
     Windows: setx ASPNETCORE_ENVIRONMENT Development
     PowerShell: [Environment]::SetEnvironmentVariable("ASPNETCORE_ENVIRONMENT","Development","User")
     Mac/Linux: export ASPNETCORE_ENVIRONMENT=Development
-***************************************************
+********************************************************************************
 
-IN STARTUP.CS
+TERMINAL
+    dotnet new web --no-https -o YourProjectNamehere
+
+
+
+********************************************************************************
+STARTUP.CS
 
 ConfigureServices method - add the following:
     services.AddMvc(options => options.EnableEndpointRouting = false);
@@ -26,12 +29,12 @@ Configure method - remove/comment out the following:
             await context.Response.WriteAsync("Hello World!");
         });
     });
-
+********************************************************************************
 FOLDER CREATION
     Models/
     Views/
     Controllers/
-
+********************************************************************************
 CONTROLLERS
     Create HomeController.cs // name can be whatever you want, as long as the last part is Controller.cs
     using System;
@@ -48,9 +51,11 @@ CONTROLLERS
             }
         }
     }
+********************************************************************************
 VIEWS
     Create subfolder called Home (assuming your controller is HomeController.cs)
     Inside of that folder, create the cshtml files for your methods. Following this cheatsheet,
     that would be Index.cshtml
+********************************************************************************
 MODELS
     coming soon!
