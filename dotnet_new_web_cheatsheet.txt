@@ -9,7 +9,7 @@ Terminal:
 
 TERMINAL
     dotnet new web --no-https -o YourProjectNamehere
-
+    dotnet new viewimports -o Views/
 
 
 ********************************************************************************

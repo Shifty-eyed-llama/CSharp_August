@@ -1,3 +1,4 @@
+@model ModelsNForms.Models.Alien
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,15 +8,18 @@
 </head>
 <body>
     <h1>Create Your Alien!</h1>
-    <form action="/alien/create" method="post">
-        <label for="Name">Name: </label>
-        <input type="text" name="Name">
+    <form asp-action="AlienSubmission" asp-controller="Home" method="post">
+        <span asp-validation-for="Name"></span>
+        <label asp-for="Name"></label>
+        <input asp-for="Name">
         <br>
-        <label for="HomePlanet">Home Planet: </label>
-        <input type="text" name="HomePlanet">
+        <span asp-validation-for="HomePlanet"></span>
+        <label asp-for="HomePlanet"></label>
+        <input asp-for="HomePlanet">
         <br>
-        <label for="DistanceFromHome">Distance From Home Planet: </label>
-        <input type="number" name="DistanceFromHome">
+        <span asp-validation-for="DistanceFromHome"></span>
+        <label asp-for="DistanceFromHome"></label>
+        <input asp-for="DistanceFromHome">
         <br>
         <input type="submit" value="Submit Alien">
     </form>

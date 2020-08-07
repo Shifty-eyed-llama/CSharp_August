@@ -125,7 +125,6 @@ class SLList {
     // Write a method that will calculate and return the average
     // of all the node's values in a singly linked list
     average(){
-
         if(this.isEmpty()){
             console.log("List is empty.");
             return 0;

@@ -30,7 +30,14 @@ namespace ModelsNForms.Controllers     //be sure to use your own project's names
         [HttpPost("alien/create")]
         public ViewResult AlienSubmission(Alien FromForm)
         {
-            return View("AlienSubmission", FromForm);
+            if(ModelState.IsValid)
+            {
+                return View("AlienSubmission", FromForm);
+            }
+            else
+            {
+                return NewAlien();
+            }
         }
     }
 }
