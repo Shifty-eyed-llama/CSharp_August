@@ -99,6 +99,19 @@ class SLList {
         // the first and last node, so its .next SHOULD be null!
     }
 
+    // Write a method that will remove the head node from the 
+    // Singly Linked List.
+    removeHead(){
+
+    }
+
+    // Write a method that will calculate and return the average
+    // of all the node's values in a singly linked list
+    average(){
+        
+    }
+
+
     // Here's a gimme: This will print the contents of a singly linked list.
     printList(){
         if(this.isEmpty()){
