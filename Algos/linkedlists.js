@@ -102,13 +102,50 @@ class SLList {
     // Write a method that will remove the head node from the 
     // Singly Linked List.
     removeHead(){
+        // If the list is empty, we can't possibly remove anything
+        if(this.isEmpty()){
+            // So let's let it be known and just return the list.
+            console.log("List is already empty.");
+            return null;
+        }
+
+        // Let's hold onto the current head so we can eventually return it
+        let removed = this.head;
+        // Set the head to the current head's next node
+        this.head = removed.next;
+        // Chop off the removed node's .next so we can treat it
+        // as a stand-alone node
+        removed.next = null;
+
+        // and return it.
+        return removed;
 
     }
 
     // Write a method that will calculate and return the average
     // of all the node's values in a singly linked list
     average(){
-        
+
+        if(this.isEmpty()){
+            console.log("List is empty.");
+            return 0;
+        }
+        // We'll use 2 variables to keep track of the sum and number of nodes
+        let sum = 0;
+        let count = 0;
+        // Let's start our runner at the head of the list
+        let runner = this.head;
+        // And move it until it's null
+        while(runner != null){
+            // At each node, we'll add its value to the sum and increment our counter
+            sum += runner.value;
+            count++;
+            // and move the runner down the list
+            runner = runner.next;
+        }
+
+        // Now that we've touched all of the nodes, lets calculate and return the average.
+        return sum / count;
     }
 
 
