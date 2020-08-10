@@ -150,6 +150,25 @@ class SLList {
     // Write a method that determines whether or not the linked list contains
     // a node with a given value, and return a boolean based on that
     contains(value){
+        // Basically what we want to do here is run through each node
+        // and check for a matching value.
+
+        // So let's create our runner
+        let runner = this.head;
+
+        while(runner != null) {
+            // We'll check if the runner's value matches the value requested
+            if(runner.value == value){
+                // if they match, the list contains that value!
+                return true;
+            }
+            // Otherwise let's progress down the list
+            runner = runner.next;
+        }
+
+        // if we checked every node in the list and never found the value,
+        // then the list clearly doesn't contain that value.
+        return false;
 
     }
 
@@ -158,6 +177,42 @@ class SLList {
     // helpful!
     // Return the node. Or the list. Idk, I'm not your dad.
     removeFromBack(){
+        // First step: Is the list empty?
+        if(this.isEmpty()){
+            console.log("List is empty.");
+            return null;
+        }
+        // Second step: Is the list only one element long? 
+        // If so, just set the head to null
+        else if(this.head.next == null) {
+            let temp = this.head;
+            this.head = null;
+            return temp;
+        }
+        //If either of those conditions weren't met, let's get down to business
+        else {
+            // We'll need 2 iterators. Let's call them runner and walker
+
+            // walker will start at the head, and runner at the 2nd node
+            let walker = this.head;
+            let runner = this.head.next;
+
+            // And let's iterate so that runner reachest the last node,
+            // with walker remaining 1 node behind
+            while(runner.next != null) {
+                // move walker to the runner
+                walker = runner;
+                // and move runner to the next node
+                runner = runner.next;
+            }
+            // If we've broken out of the loop, then runner is the last node,
+            // and walker is the second to last node.
+
+            // Set walker.next to null, which essentially lops runner off 
+            walker.next = null;
+            // and return the runner (previously the final node)
+            return runner;
+        }
 
     }
 
