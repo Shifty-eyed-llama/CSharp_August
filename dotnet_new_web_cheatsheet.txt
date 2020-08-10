@@ -16,10 +16,12 @@ TERMINAL
 STARTUP.CS
 
 ConfigureServices method - add the following:
+    services.AddSession();
     services.AddMvc(options => options.EnableEndpointRouting = false);
 
 Configure method - add the following:
     // after app.UseRouting();
+    app.UseSession();
     app.UseMvc();
 Configure method - remove/comment out the following: 
     app.UseEndpoints(endpoints =>
@@ -32,16 +34,18 @@ Configure method - remove/comment out the following:
 ********************************************************************************
 FOLDER CREATION
     Models/
-    Views/
     Controllers/
 ********************************************************************************
 CONTROLLERS
     Create HomeController.cs // name can be whatever you want, as long as the last part is Controller.cs
     using System;
     using Microsoft.AspNetCore.Mvc;
+    using Microsoft.AspNetCore.Http;
+    using YourNamespace.Models;
+
     namespace YourNamespace.Controllers     //be sure to use your own project's namespace!
     {
-        public class HelloController : Controller   
+        public class HomeController : Controller   
         {
             //for each route this controller is to handle:
             [HttpGet("")]     //Http Method and the route
@@ -58,4 +62,39 @@ VIEWS
     that would be Index.cshtml
 ********************************************************************************
 MODELS
-    coming soon!
+    using System;
+    using System.ComponentModel.DataAnnotations;
+
+    namespace YourNamespace.Models
+    {
+        public class YourModelName
+        {
+            // Go crazy with your attributes and validations!
+        }
+    }
+
+********************************************************************************
+IF YOU WANT TO STORE WHOLE OBJECTS IN JSON
+    Make a folder called Extensions
+    New file called SessionExtension.cs
+
+    using System.Text.Json;
+    using Microsoft.AspNetCore.Http;
+
+    namespace Session
+    {
+        public static class SessionExtensions
+        {
+            public static void SetObjectAsJson(this ISession session, string key, object value)
+            {
+                session.SetString(key, JsonSerializer.Serialize(value));
+            }
+
+            public static T GetObjectFromJson<T>(this ISession session, string key)
+            {
+                string value = session.GetString(key);
+
+                return value == null ? default(T) : JsonSerializer.Deserialize<T>(value);
+            }
+        }
+    }
