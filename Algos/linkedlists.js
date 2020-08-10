@@ -147,6 +147,19 @@ class SLList {
         return sum / count;
     }
 
+    // Write a method that determines whether or not the linked list contains
+    // a node with a given value, and return a boolean based on that
+    contains(value){
+
+    }
+
+    // Write a method that will remove the last node from the linked list.
+    // HINT: Figuring out a way to find the SECOND TO LAST node will be immensely
+    // helpful!
+    // Return the node. Or the list. Idk, I'm not your dad.
+    removeFromBack(){
+
+    }
 
     // Here's a gimme: This will print the contents of a singly linked list.
     printList(){
