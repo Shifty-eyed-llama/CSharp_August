@@ -225,7 +225,7 @@ class SLList {
     // HINT: Removing means point the previous node's .next to the
     // current node's .next
     removeVal(value){
-
+        
     }
 
 
