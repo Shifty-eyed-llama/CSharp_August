@@ -216,6 +216,20 @@ class SLList {
 
     }
 
+
+    // Write a method that will find a node with a given value 
+    // and remove it from the linked list.
+
+    // Things to think about: What are your edge cases?
+
+    // HINT: Removing means point the previous node's .next to the
+    // current node's .next
+    removeVal(value){
+
+    }
+
+
+
     // Here's a gimme: This will print the contents of a singly linked list.
     printList(){
         if(this.isEmpty()){
