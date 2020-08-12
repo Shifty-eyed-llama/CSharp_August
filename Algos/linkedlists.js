@@ -225,7 +225,43 @@ class SLList {
     // HINT: Removing means point the previous node's .next to the
     // current node's .next
     removeVal(value){
-        
+        if(this.isEmpty()){
+            console.log("List is empty.");
+            return this;
+        }
+        else if(this.head.value == value){
+            this.head = this.head.next;
+            return this;
+        }
+        else if(this.head.next == null){
+            console.log("List does not contain that value");
+            return this;
+        }
+        else {
+            let walker = this.head;
+            let runner = this.head.next;
+            while(runner != null) {
+                if(runner.value == value) {
+                    walker.next = runner.next;
+                    return this;
+                }
+                walker = runner;
+                runner = runner.next;
+            }
+            console.log("List does not contain that value");
+            return this;
+        }   
+    }
+
+    // Write a method that will return the second to last node's value
+    secondToLast(){
+
+    }
+
+    // Write a mathod that takes another linked list as a parameter, and 
+    // concatenates it onto the end of the current linked list.
+    concat(list){
+
     }
 
 
